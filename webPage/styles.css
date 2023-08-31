@@ -19,3 +19,23 @@ body {
   width: 100%;
   height: 100%;
 }
+
+#menu {
+  position: fixed;
+  display: none;
+  background-color: #000000d3;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  font-size: 4vh;
+}
+
+#floating {
+  position: fixed;
+  height: 10vmin;
+  width: 10vmin;
+  left: 10px;
+  bottom: 10px;
+  background-color: blue;
+  border-radius: 50%;
+}

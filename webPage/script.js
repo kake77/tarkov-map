@@ -63,3 +63,38 @@ function draw(startPosition, endPosition) {
 canvas.addEventListener("touchstart", touchstart);
 canvas.addEventListener("touchend", touchend);
 canvas.addEventListener("touchmove", touchmove);
+
+const menu = document.getElementById("menu");
+const floatingButton = document.getElementById("floating");
+floatingButton.addEventListener("touchstart", (_) => {
+  menu.style.display = "block";
+});
+
+const deleteButton = document.getElementById("delete");
+deleteButton.addEventListener("touchstart", (_) => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  menu.style.display = "none";
+});
+
+const maps = [
+  "customs",
+  "woods",
+  "shoreline",
+  "interchange",
+  "reserve",
+  "lighthouse",
+  "sot",
+  "factory",
+  "lab",
+];
+maps.forEach((map) => {
+  document
+    .getElementById(map)
+    .addEventListener("touchstart", (_) => switchMap(map));
+});
+
+function switchMap(map) {
+  const path = "./img/" + map + ".webp";
+  document.getElementById("mapImage").src = path;
+  menu.style.display = "none";
+}
